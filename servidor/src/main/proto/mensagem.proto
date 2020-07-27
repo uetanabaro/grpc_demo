@@ -1,0 +1,51 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+package grpc.channelz.v1;
+
+option go_package = "google.golang.org/grpc/binarylog/grpc_binarylog_v1";
+option java_multiple_files = true;
+option java_package = "dev.suka.grpc";
+//option java_outer_classname = "CervejaProto";
+//option java_generic_services = true;
+
+
+/*
+-----------------------------------------
+Tipos
+-----------------------------------------
+double
+float
+int32
+int64
+uint32
+uint64
+sint32	int
+sint64	long
+fixed32	int
+fixed64	long
+sfixed32	int
+sfixed64	long
+bool
+string
+bytes
+*/
+
+service Cervejeiro {
+  rpc getCerveja(google.protobuf.Empty) returns (Cerveja);
+}
+
+message Cerveja {
+
+  string nome = 1;
+
+  enum TipoCerva {
+    CERVEJA_NACIONAL = 0;
+    CERVEJA_GRINGA = 1;
+  }
+
+  TipoCerva tipo = 3;
+}
+
+
